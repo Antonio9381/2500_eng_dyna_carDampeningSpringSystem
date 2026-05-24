@@ -186,5 +186,5 @@ ax[1, 1].set_xlabel("frequency [Hz]"); ax[1, 1].set_ylabel("normalized magnitude
 ax[1, 1].legend()
 
 plt.tight_layout()
-plt.savefig("half_car_results.png", dpi=130)
+plt.savefig("Claud/half_car_results.png", dpi=130)
 print("\nSaved figure -> half_car_results.png")
