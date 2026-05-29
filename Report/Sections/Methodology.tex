@@ -92,6 +92,22 @@ Substituting and combining gives the full rotational equation of motion:
     \label{fig:pendulum_fbd}
 \end{figure}
 
+Taking moments about the pendulum pivot, with $\alpha = \theta + \beta$ as the absolute angle of the pendulum:
+
+\begin{gather*}
+    \sum M = J_p \ddot{\alpha} \\
+    J_p = m_p l_p^2 \\
+    \alpha = \theta + \beta \implies \ddot{\alpha} = \ddot{\theta} + \ddot{\beta} \\
+    M_g = m_p g l_p \sin(\theta + \beta) = m_p g l_p (\theta + \beta) \quad \text{(small angle approximation)} \\
+    \sum M = m_p l_p^2 (\ddot{\theta} + \ddot{\beta})
+\end{gather*}
+
+Substituting into the moment equation and applying the torsional spring-damper restraint gives the pendulum equation of motion:
+
+\begin{gather*}
+    m_p l_p^2 (\ddot{\theta} + \ddot{\beta}) + C_{tor}\dot{\beta} + k_{tor}\beta + m_p g l_p (\theta + \beta) = 0 \numberthis \label{eq:pendulum_eq_motion}
+\end{gather*}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Computational Approach}
 
