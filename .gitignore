@@ -7,3 +7,5 @@
 *.gz
 *.toc
 *.pdf
+*.bbl
+*.blg
