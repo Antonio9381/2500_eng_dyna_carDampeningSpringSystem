@@ -59,9 +59,31 @@ Finally, using Newtonian Methods, we can find the net forces at $A$ and $B$ to g
     m\ddot{x} + 2c\dot{x} + 2kx = k(r_A + r_B) + c(\dot{r}_A + \dot{r}_B) \numberthis \label{eq:x_eq_motion}
 \end{gather*}
 
-\subsubsection{MOMENTS}
+\subsubsection{Moments}
 
-\subsubsection{pandulum}
+Taking moments about the centre of mass, the rotational equation of motion for $\theta$ is derived. The net moment contributions come from the spring-damper forces at attachment points $A$ and $B$, and the applied moments from the torsional pendulum restraints $M_{A_{p}}$ and $M_{B_{p}}$.
+
+\begin{gather*}
+    I\ddot{\theta} = \frac{L}{2}F_B - \frac{L}{2}F_A + M_{A_{p}} + M_{B_{p}} \\
+    I\ddot{\theta} = \frac{L}{2}(F_B - F_A) + M_{A_{p}} + M_{B_{p}} \\
+    I\ddot{\theta} = -2k\left(\frac{L}{2}\right)^2\theta - 2c\left(\frac{L}{2}\right)^2\dot{\theta} + \frac{L}{2}k(r_B - r_A) + ac(\dot{r}_B - \dot{r}_A) + M_{A_{p}} + M_{B_{p}} \\
+    I\ddot{\theta} + 2c\left(\frac{L}{2}\right)^2\dot{\theta} + 2k\left(\frac{L}{2}\right)^2\theta = ak(r_B - r_A) + ac(\dot{r}_B - \dot{r}_A) + M_{A_{p}} + M_{B_{p}}
+\end{gather*}
+
+The applied moments from the torsional spring-damper at each pendulum attachment are:
+
+\begin{gather*}
+    M_{A_{p}} = k_{tor}\beta_A + C_{tor}\dot{\beta}_A \\
+    M_{B_{p}} = k_{tor}\beta_B + C_{tor}\dot{\beta}_B
+\end{gather*}
+
+Substituting and combining gives the full rotational equation of motion:
+
+\begin{gather*}
+    I\ddot{\theta} + 2c\left(\frac{L}{2}\right)^2\dot{\theta} + 2k\left(\frac{L}{2}\right)^2\theta = ak(r_B - r_A) + ac(\dot{r}_B - \dot{r}_A) + k_{tor}(\beta_A + \beta_B) + C_{tor}(\dot{\beta}_A + \dot{\beta}_B) \numberthis \label{eq:theta_eq_motion}
+\end{gather*}
+
+\subsubsection{Pendulum}
 
 \begin{figure} [H]
     \centering
