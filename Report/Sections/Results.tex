@@ -1,11 +1,65 @@
 \section{Results}
 
-Refresher on what we were trying to achieve
-- Optimize safety of passengers
+The objective of this investigation is to identify the spring constant $k$ and damping coefficient $c$ that maximise passenger safety, characterised by the vertical displacement of the chassis and the roll angle $\theta$ of the car body. To achieve this, a parametric sweep was performed over a range of $k$ and $c$ values, and the steady-state amplitude of each quantity was recorded.
 
-What data I actually have
-- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Effect of Damping Coefficient on Displacement}
 
-present sufficient figures, tables, calculations and discussion to analyse the
-system and reach conclusions. Graphs, plots and tables must be clearly captioned,
-have axis labels and legends and with specified units.
+Figure \ref{fig:damping_vs_displacement} shows the peak vertical displacement of the chassis as a function of the damping coefficient $c$ for several spring constants $k$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Images/damping_vs_displacement.png}
+    \caption{Peak chassis displacement versus damping coefficient for various spring constants.}
+    \label{fig:damping_vs_displacement}
+\end{figure}
+
+For spring constants of $k \leq 7000$ N/m the displacement decreases monotonically with increasing $c$ and no interior minimum is present. For larger spring constants, however, a clear minimum in displacement emerges. In all cases where a minimum exists, it occurs at approximately $c = 1500$ Ns/m. Because the optimal spring constant identified below lies well above 7000 N/m, this minimum is reachable and $c^{*} = 1500$ Ns/m is taken as the optimal damping coefficient.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Effect of Spring Constant on Tilt Angle}
+
+Figure \ref{fig:spring_vs_tilt} shows the peak roll angle $\theta$ as a function of the spring constant $k$ for several damping coefficients.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Images/spring_vs_tilt.png}
+    \caption{Peak chassis tilt angle versus spring constant for various damping coefficients.}
+    \label{fig:spring_vs_tilt}
+\end{figure}
+
+The tilt angle is minimised at $k^{*} = 34500$ N/m when the damping coefficient is set to $c^{*} = 1500$ Ns/m. Below this value the car rolls excessively over the road bumps, while above it the increased stiffness transmits more of the road input directly to the chassis, also raising the tilt. The value $k^{*} = 34500$ N/m is therefore selected as the optimal spring constant.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Optimal Configuration}
+
+With $k^{*} = 34500$ N/m, it is necessary to verify that a minimum in displacement still exists with respect to $c$. Referring to Figure \ref{fig:damping_vs_displacement}, the curves for $k = 31000$ N/m and $k = 35000$ N/m both exhibit a well-defined minimum near $c = 1500$ Ns/m. Since $k^{*} = 34500$ N/m lies between these two values, it is confident that the same minimum exists, and the optimal damping coefficient remains $c^{*} = 1500$ Ns/m.
+
+The optimal suspension configuration is therefore:
+\begin{gather*}
+    k^{*} = 34500 \text{ N/m} \\
+    c^{*} = 1500 \text{ Ns/m}
+\end{gather*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{System Performance at Optimal Settings}
+
+The system was simulated with $k^{*}$ and $c^{*}$ over a bumpy road described by a sin wave of amplitude 0.025m. Figures \ref{fig:tilt_optimal} and \ref{fig:displacement_optimal} show the resulting roll angle and chassis displacement over the simulation period.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Images/tilt_angle.png}
+    \caption{Roll angle $\theta$ over time at optimal settings ($k^{*} = 34500$ N/m, $c^{*} = 1500$ Ns/m).}
+    \label{fig:tilt_optimal}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Images/displacement_validation.png}
+    \caption{Chassis vertical displacement over time at optimal settings ($k^{*} = 34500$ N/m, $c^{*} = 1500$ Ns/m).}
+    \label{fig:displacement_optimal}
+\end{figure}
+
+The tilt angle reaches a maximum magnitude of approximately $6 \times 10^{-14}$ degrees, which is negligibly small and would be imperceptible to passengers. The vertical displacement oscillates as a sinusoidal wave between $0.29$ m and $0.31$ m, giving a peak-to-equilibrium deviation of less than $0.01$ m. This is smaller than the road-bump amplitude of $0.025$ m, confirming that the suspension effectively attenuates the road input rather than amplifying it.
+
+Together, the minimal tilt and well-damped displacement response demonstrate that the optimal configuration provides a safe and comfortable ride. The spring constant is stiff enough to resist excessive roll, while the damping coefficient dissipates kinetic energy efficiently without over-damping the system.
