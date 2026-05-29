@@ -1,0 +1,56 @@
+\section{Methodology}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{System Overview}
+
+The system is first simplified into a beam with mass $m$, length $L$ and moment of inertia $I$. It has 2 independent spring and dampener systems, which represent the front and back wheels. A bumpy road is represented by a simple sine wave, and then the displacement of the front wheels can be represented by some function of time $f(t)$, and the displacement of the back wheels would be represented $f(t-\phi)$ where $\phi$ is the phase change in the sine function dependent on its wavelength and the length of the car. Compiling all this information, the system can be seen in Figure \ref{fig:system_overview}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Images/System_Overview.jpeg}
+    \caption{System Overview}
+    \label{fig:system_overview}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equations of Motion}
+
+The system consists of one body in a 2-D plane. It has constraints in the horizontal axis, as that motion is defined by driving across the road, hence we are not going to consider that motion. Then the number of degrees of freedom (DoF) is as given below, where $N$ is the number of bodies and $k$ is the number of constraints.
+
+\begin{equation*}
+    DoF = 3N - k = 3-1 = 2
+\end{equation*}
+
+Hence, we require 2 equations of motion to fully define the motion of the system. These motions are $x$, which describes the vertical displacement, and $\theta$ which describes the roll of the body as shown in Figure \ref{fig:system_overview}.
+
+We can then derive equations for $x$ and $\theta$ in terms of $a$ and $b$ which are the displacements for the attachment points for the 2 spring and dampener systems $A$ and $B$ respectively. From the geometry shown in Figure \ref{fig:system_geometry}, the equations of motion \ref{eq:theta_def} and \ref{eq:x_def} can be derived as shown.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Images/x_theta_geometry.jpeg}
+    \caption{System Geometry}
+    \label{fig:system_geometry}
+\end{figure}
+
+\begin{gather*}
+    \sin(\theta) = \frac{b-a}{L} \\
+    \implies \theta = \frac{b-a}{L} \quad \text{(small angle approximation)} \numberthis \label{eq:theta_def} \\
+    x = a + \frac{L}{2}\theta = a + \frac{L(b-a)}{2L} \\
+    \implies x = \frac{a+b}{2} \numberthis \label{eq:x_def}
+\end{gather*}
+
+Finally, using Newtonian Methods, we can find the net forces at $A$ and $B$ to get a coupled system of differential equations, and define the motion of the system. From the free body diagram (FBD) in Figure \ref{fig:fbd}, the equations in \ref{eq:a_eq_motion} and \ref{eq:b_eq_motion} can be derived as shown. Note, as the weight is a static force, the equilibrium position is taken where this force is balanced, and hence we only have to consider dynamic forces in the FBD.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Images/main_system_fbd.jpeg}
+    \caption{Free Body Diagram of Dynamic Forces}
+    \label{fig:fbd}
+\end{figure}
+
+\begin{gather*}
+    \sum F_A = F_{sA} + F_{dA} \quad \text{and} \quad \sum F_B = F_{sB} + F_{dB} \\
+    \implies m\ddot{a} = -k(a-f(t)) - c\dot{a} \quad \text{and} \quad m\ddot{b} = -k(b-f(t-\phi)) - c\dot{b} \\
+    \therefore m\ddot{a} + c\dot{a} + ka = kf(t) \numberthis \label{eq:a_eq_motion} \\
+    \text{and}~m\ddot{b} + c\dot{b} + kb = kf(t-\phi) \numberthis \label{eq:b_eq_motion}
+\end{gather*}

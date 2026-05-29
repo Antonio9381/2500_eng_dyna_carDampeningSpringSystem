@@ -5,5 +5,9 @@
 *.log
 *.out
 *.gz
+<<<<<<< HEAD
 *.toc
 *.pdf
+=======
+*.toc
+>>>>>>> c602afe (done system overview and equations of motion in the methodology)
