@@ -3,14 +3,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{System Overview}
 
-The system is first simplified into a beam with mass $m$, length $L$ and moment of inertia $I$. It has 2 independent spring and dampener systems, which represent the front and back wheels. A bumpy road is represented by a simple sine wave, and then the displacement of the front wheels can be represented by some function of time $f(t)$, and the displacement of the back wheels would be represented $f(t-\phi)$ where $\phi$ is the phase change in the sine function dependent on its wavelength and the length of the car. Compiling all this information, the system can be seen in Figure \ref{fig:system_overview}.
+The system is first simplified into a beam with mass $m$, length $L$ and moment of inertia $I$. It has 2 independent spring and dampener systems, which represent the front and back wheels. It also have two person on the car frantically leaning acting as a pendulum with mass $m_p$, angle $\beta_A$ or $\beta_B$. A bumpy road is represented by a simple sine wave, and then the displacement of the front wheels can be represented by some function of time $f(t)$, and the displacement of the back wheels would be represented $f(t-\phi)$ where $\phi$ is the phase change in the sine function dependent on its wavelength and the length of the car. Compiling all this information, the system can be seen in Figure \ref{fig:system_overview}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{Images/System_Overview.jpeg}
+    \includegraphics[width=0.6\linewidth]{Images/System_Overview.png}
     \caption{System Overview}
     \label{fig:system_overview}
 \end{figure}
+
+The goal of this task is to optimise the vertical displacement (x) and roll ($\theta$) of the car, which are the two degrees of freedom of the system. This is done by optimising the parameters of the spring and dampener systems, which are $K_{tor}$, $C_{tor}$,$k$ and $c$ respectively.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equations of Motion}
