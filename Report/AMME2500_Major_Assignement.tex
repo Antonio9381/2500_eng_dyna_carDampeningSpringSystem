@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Packages
+
+\documentclass[12pt, a4paper]{article}
+\usepackage[framed]{matlab-prettifier}
+\usepackage{amssymb}
+\usepackage{svg}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{etoolbox} %% Associated with the \patchcmd command
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{lipsum}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage{lastpage}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{sectsty}
+\usepackage{thmtools}
+\usepackage{shadethm}
+\usepackage{tabularx}
+\usepackage{pgfplotstable}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{physics}
+\usepackage{listings}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{gensymb}
+\usepackage{pdfpages}
+\usepackage[moderate]{savetrees}
+\usepackage{matlab-prettifier}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{graphics} % For figures.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    allcolors=black,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Environment setup
+
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Matlab,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand\course{AMME 2500}                 % <-- course name 
+\newcommand\Assignment{Major Assignment}
+\newcommand\Name{Naimish Aggarwal, Isaac Edmonds, Tung Ling Wu}
+\newcommand\SID{550725262, 550813846, INSERT SID}
+
+%Page setup
+\pagestyle{fancy}
+\headheight 30pt
+\lhead{\Assignment \hspace{2mm} - \hspace{2mm} \SID}
+\rhead{\includegraphics[width=2.5cm]{images/usyd_logo.png}}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1em
+\renewcommand{\baselinestretch}{1}       
+\mdfdefinestyle{theoremstyle}{%
+linecolor=black,linewidth=1pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+% \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\setlength{\abovedisplayskip}{10em}
+\setlength{\belowdisplayskip}{10em}
+\setlength{\abovedisplayshortskip}{10em}
+\setlength{\belowdisplayshortskip}{10em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+\begin{document}
+
+\pagenumbering{roman}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{3cm}
+
+        \includegraphics[width=0.6\textwidth]{images/usyd_logo.png}
+        \vspace{3cm}
+            
+        \Huge
+        \textbf{\Assignment}
+            
+        \vspace{1cm}
+        \huge
+        \course
+            
+        \vspace{1.5cm}
+        \Large    
+        \vspace{4cm}
+           
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\pagenumbering{roman}
+\clearpage
+\setcounter{page}{1}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\newpage
+
+\input{Sections/Abstract}
+\input{Sections/Introduction}
+
+%%% Appendices and References %%%
+
+\medskip
+\cleardoublepage
+\phantomsection
+\section{References}
+\bibliographystyle{ieeetr}
+\bibliography{citations}
+
+\newpage
+\appendix
+
+\end{document}
