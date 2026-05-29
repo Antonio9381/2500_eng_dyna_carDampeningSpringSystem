@@ -1,9 +1,9 @@
 \section{Conclusions}
 
-This report analysed a simplified model of a car's suspension systems to try and find optimal spring and damping coefficients. The system was solved numerically, and the results plotted.
+This report investigated the dynamic behaviour of a simplified car suspension system, modelling the chassis as a rigid beam with two spring-damper pairs representing the wheels and two torsion-spring-restrained pendulums representing passengers. The coupled equations of motion for vertical displacement $x$ and roll angle $\theta$ were derived using Newtonian mechanics and solved numerically with the Runge-Kutta method.
 
-The results showed that an optimal solution did exist, and it is when $c=1500$ Ns/m and $k=34.5$ kN/m.
+A parametric sweep over spring constant $k$ and damping coefficient $c$ identified an optimal suspension configuration of $k^{*} = 34{,}500$ N/m and $c^{*} = 1{,}500$ Ns/m. At these settings, the peak roll angle was approximately $6 \times 10^{-14}$ degrees---effectively zero and imperceptible to passengers---and the chassis displacement amplitude was reduced below $0.01$ m against a sinusoidal road-bump amplitude of $0.025$ m, confirming effective attenuation of the road input.
 
-These findings have important implications for providing a smooth driving experience and is important to model since its more efficient and cost-effective than random trial and error testing.
+These results demonstrate that a correctly tuned suspension system can significantly reduce chassis vibration and roll, improving passenger safety and comfort. Computational modelling of this kind provides an efficient, cost-effective alternative to physical trial-and-error testing in early-stage suspension design.
 
-Future work could explore making a more complex 3-D simulation to analyse displacement, pitch and roll, along with trying different road simulations.
+Future work could extend the model to three dimensions to capture pitch and lateral dynamics independently, incorporate more realistic road profiles beyond a single sinusoidal input, and explore how varying passenger mass and seating position affects the optimal suspension parameters.
